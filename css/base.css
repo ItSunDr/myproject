@@ -1,0 +1,18 @@
+﻿@charset "utf-8";
+/* 基础css  清除默认样式*/
+body,html{font-size:12px; font-family: "Microsoft YaHei"}
+ul,ol,body,h1,h2,h3,h4,h5,h6,p,dl,dd{margin: 0; color: #333;}
+h1,h2,h3,h4,h5,h6,b,strong{font-weight:normal;}
+a{text-decoration:none; color:#000;}
+a:focus{outline:none;}
+i,em{font-style:normal;}
+.fl{float:left;}
+.fr{float:right;}
+.clearfix:after{display:block;clear:both;content:'';}
+.clearfix{zoom:1;}
+select,input{outline:none; border:none 0; padding:0;}
+textarea{outline:none; resize:none; padding:0;}
+ul,ol{list-style:none; vertical-align:top; padding: 0;}
+a img{border:0;}
+table,th,td,tr{padding:0;}
+table{border-collapse: collapse;}
