@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<div class="home">
+			<div class="home-bg">
+				<img src="images/home/0.png" alt="" class="homeImg0"/>
+				<img src="images/home/1.png" alt="" class="homeImg1"/>
+				<img src="images/home/2.png" alt="" class="homeImg2" />
+				<img src="images/home/3.png" alt="" class="homeImg3" />
+				<img src="images/home/4.png" alt="" class="homeImg4" />
+			</div>
+			<div class="homeMask"></div>
+			<div class="homeDes">
+				<p class="homeDes-false">摘一朵彩云<br />变成小小天使<br />在清秋时节<br />飞到你身边<br />陪你看霜林尽染<br />候鸟双飞<br />许你一段<br />温馨的时光<br />都说，生命如虹，岁月如歌，年华似锦，时光如炬。<br /></p>
+				<p class="homeDes-true"></p>
+			</div>
+			<a href="index.html" class="goMyhome"></a>
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//规定图片高度与屏幕大小同高
+				var winHeight=$(window).height();
+				$(".home-bg").css('height',winHeight);
+				$(window).resize(function(){
+					var winHeight=$(window).height();
+					$(".home-bg").css('height',winHeight);
+				})
+				$(".homeMask").css('height',winHeight/2);
+				$(".home").css('height',winHeight);
+				
+				//背景虚化
+				setTimeout(function(){
+					$(".homeImg0").animate({
+						'opacity':'1'
+					},function(){
+						$(".homeImg1").animate({
+							'opacity':'1',
+							'marginLeft':'0'
+						},function(){
+							$(".homeImg2").animate({
+								'opacity':'1',
+								'marginLeft':'0'
+							},function(){
+								$(".homeImg3").animate({
+									'opacity':'1',
+									'marginLeft':'0'
+								},function(){
+									$(".homeImg4").animate({
+										'opacity':'1',
+										'marginLeft':'0'
+									})
+								})
+							})
+						})
+					})
+				},300)
+				
+				//文字特效
+				var arr=[];
+				var index0=0;
+				for(var i=0; i<$(".homeDes-false").html().length; i++){
+					arr[i]=$(".homeDes-false").html().substr(i,1);
+				}
+				
+				setInterval(function(){
+					if(index0 < $(".homeDes-false").html().length){
+						if(arr[index0] == '<'){
+							$(".homeDes-true").append(arr[index0]+arr[index0+1]+arr[index0+2]+arr[index0+3]);
+							index0=index0+4;
+						}else{
+							$(".homeDes-true").append(arr[index0]);
+							index0++;
+						}
+					}
+				},120);
+				
+				var n=Math.random();
+
+				if($(window).scrollTop() == '0'){
+					$(".goMyhome").css({
+						'transform':'translate(350px,80px) rotate(360deg) translate(640px,410px) scale(5) rotate(35deg) scale(.2)'					
+					});
+				}
+				
+			})
+		</script>
+	</body>
+</html>
